@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Trabaja con Nosotros | TrustMarket{% endblock %}
+{% block content %}
+<section class="section container">
+    <h1>Trabaja con Nosotros</h1>
+    <p>Completa el formulario y sé parte de nuestro equipo de ventas de seguros de salud.</p>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" class="application-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}<small class="error">{{ field.errors|striptags }}</small>{% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn-primary">Enviar Postulación</button>
+    </form>
+</section>
+{% endblock %}

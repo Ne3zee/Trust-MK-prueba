@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}TrustMarket | Soluciones de contacto{% endblock %}
+{% block content %}
+<section id="inicio" class="hero">
+    <div class="container">
+        <h1>Conectamos personas, tecnología y resultados</h1>
+        <p>Rediseño orientado a conversión para servicios de contact center, IVR, bots y mail marketing.</p>
+        <a class="btn-primary" href="{% url 'jobs:apply' %}">Postula al call center</a>
+    </div>
+</section>
+
+<section id="servicios" class="section container">
+    <h2>Servicios</h2>
+    <div class="cards">
+        <article class="card"><h3>IVR</h3><p>Flujos inteligentes para derivación y atención eficiente.</p></article>
+        <article class="card"><h3>Mail Marketing</h3><p>Campañas segmentadas para adquisición y fidelización.</p></article>
+        <article class="card"><h3>Contact Center</h3><p>Equipos capacitados para venta de seguros de salud.</p></article>
+        <article class="card"><h3>Bots</h3><p>Automatización de respuestas y soporte 24/7.</p></article>
+    </div>
+</section>
+
+<section id="nosotros" class="section alt-bg">
+    <div class="container">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos un partner comercial especializado en experiencia de cliente y cumplimiento de objetivos.</p>
+        <ul>
+            <li>Información corporativa y redes sociales.</li>
+            <li>Propuesta de valor basada en métricas.</li>
+            <li>Experiencia en campañas de alta demanda.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contacto" class="section container">
+    <h2>Contáctanos</h2>
+    <p>¿Quieres hablar con un agente? Escríbenos y nuestro equipo te responderá.</p>
+    <a class="btn-secondary" href="mailto:contacto@trustmarket.cl">contacto@trustmarket.cl</a>
+</section>
+{% endblock %}
