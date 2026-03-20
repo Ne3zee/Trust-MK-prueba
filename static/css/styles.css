@@ -159,3 +159,12 @@ h1, h2, h3 { font-family: "Montserrat", "Inter", sans-serif; margin-top: 0; colo
   .agent-banner { flex-direction: column; align-items: start; }
   .checkbox-grid ul { grid-template-columns: 1fr; }
 }
+
+
+.brand { display:flex; align-items:center; gap:.6rem; }
+.brand-icon { width:42px; height:42px; border-radius:50%; background:#10b7f2; color:#fff; display:grid; place-items:center; font-family:"Montserrat"; font-size:1.9rem; line-height:1; }
+.brand-text { font-size:2rem; line-height:1; }
+.page-hero { padding: 3.2rem 0; }
+.page-hero h1 { margin-bottom:.45rem; }
+.cta-split { align-items:center; }
+.cta-box { background:#fff; border:1px solid var(--tm-border); border-radius:14px; padding:1.1rem; }
