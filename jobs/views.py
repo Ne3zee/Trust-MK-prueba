@@ -31,7 +31,8 @@ def _notify_team(application):
             f"Teléfono: {application.phone}\n"
             f"Correo: {application.email}\n"
             f"Edad: {application.age}\n"
-            f"Disponibilidad: {application.get_availability_display()}\n"
+            f"Experiencia: {application.get_sales_experience_display()}\n"
+            f"Disponibilidad: {application.availability}\n"
         ),
         from_email=None,
         recipient_list=["reclutamiento@trustmarket.cl"],

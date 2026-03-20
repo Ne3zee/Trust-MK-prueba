@@ -1,26 +1,85 @@
 {% extends 'base.html' %}
 {% block title %}Trabaja con Nosotros | TrustMarket{% endblock %}
 {% block content %}
-<section class="section container">
-    <h1>Trabaja con Nosotros</h1>
-    <p>Completa el formulario y sé parte de nuestro equipo de ventas de seguros de salud.</p>
+<section class="section">
+    <div class="container application-shell">
+        <h1>Únete a nuestro Equipo de Ventas</h1>
+        <p class="subtitle">Buscamos talentos para la venta de seguros de salud.</p>
 
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert-success">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
+        <ol class="stepper" aria-label="Pasos de postulación">
+            <li class="active">Tus Datos</li>
+            <li>Experiencia</li>
+            <li>Disponibilidad</li>
+        </ol>
 
-    <form method="post" class="application-form">
-        {% csrf_token %}
-        {% for field in form %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert-success">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
+        <form method="post" class="application-form" novalidate>
+            {% csrf_token %}
+
             <div class="form-group">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-                {% if field.errors %}<small class="error">{{ field.errors|striptags }}</small>{% endif %}
+                <label for="{{ form.full_name.id_for_label }}">👤 Nombre Completo <span class="required">*</span></label>
+                {{ form.full_name }}
+                {% if form.full_name.errors %}<small class="error">{{ form.full_name.errors|striptags }}</small>{% endif %}
             </div>
-        {% endfor %}
-        <button type="submit" class="btn-primary">Enviar Postulación</button>
-    </form>
+
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">📱 Teléfono (WhatsApp) <span class="required">*</span></label>
+                {{ form.phone }}
+                {% if form.phone.errors %}<small class="error">{{ form.phone.errors|striptags }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">✉️ Email <span class="required">*</span></label>
+                {{ form.email }}
+                {% if form.email.errors %}<small class="error">{{ form.email.errors|striptags }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.age.id_for_label }}">🔢 Edad <span class="required">*</span></label>
+                {{ form.age }}
+                {% if form.age.errors %}<small class="error">{{ form.age.errors|striptags }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.sales_experience.id_for_label }}">💼 Experiencia en ventas <span class="required">*</span></label>
+                {{ form.sales_experience }}
+                {% if form.sales_experience.errors %}<small class="error">{{ form.sales_experience.errors|striptags }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <p class="field-title">🗓️ Disponibilidad <span class="required">*</span></p>
+                <div class="checkbox-grid">{{ form.availability_options }}</div>
+                {% if form.availability_options.errors %}<small class="error">{{ form.availability_options.errors|striptags }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.additional_comments.id_for_label }}">📝 Comentarios adicionales</label>
+                {{ form.additional_comments }}
+            </div>
+
+            <button type="submit" class="btn-primary btn-lg center">Enviar Postulación</button>
+        </form>
+    </div>
 </section>
+
+<script>
+  document.querySelectorAll('.field-input').forEach((input) => {
+    const validate = () => {
+      if (!input.value.trim()) {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+      } else {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+      }
+    };
+    input.addEventListener('blur', validate);
+    input.addEventListener('input', validate);
+  });
+</script>
 {% endblock %}

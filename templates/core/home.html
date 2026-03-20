@@ -1,39 +1,67 @@
 {% extends 'base.html' %}
-{% block title %}TrustMarket | Soluciones de contacto{% endblock %}
+{% block title %}TrustMarket | Contact Center & BPO{% endblock %}
 {% block content %}
 <section id="inicio" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1>Tu socio estratégico en Contact Center &amp; BPO.</h1>
+        <h2>Soluciones tecnológicas de IVR, Mail Marketing y Bots para potenciar tu empresa.</h2>
+        <a class="btn-primary btn-lg" href="#servicios">Nuestros Servicios</a>
+    </div>
+</section>
+
+<section id="servicios" class="section section-muted">
     <div class="container">
-        <h1>Conectamos personas, tecnología y resultados</h1>
-        <p>Rediseño orientado a conversión para servicios de contact center, IVR, bots y mail marketing.</p>
-        <a class="btn-primary" href="{% url 'jobs:apply' %}">Postula al call center</a>
+        <h2 class="section-title">Nuestras Soluciones de Contacto</h2>
+        <div class="cards four">
+            <article class="card"><span class="icon">📞</span><h3>IVR Inteligente</h3><p>Flujos automáticos para enrutar clientes con precisión y menor tiempo de espera.</p></article>
+            <article class="card"><span class="icon">✉️</span><h3>Mail Marketing Automático</h3><p>Campañas segmentadas con métricas de conversión para cada etapa del funnel.</p></article>
+            <article class="card"><span class="icon">🎧</span><h3>Contact Center 24/7</h3><p>Equipos especializados en soporte y venta de seguros de salud de alto desempeño.</p></article>
+            <article class="card"><span class="icon">🤖</span><h3>AI Bots &amp; Chatbots</h3><p>Automatiza respuestas, captura leads y deriva conversaciones a agentes humanos.</p></article>
+        </div>
+        <div class="agent-banner">
+            <p>¿Deseas contactar a un agente humano?</p>
+            <div>
+                <a href="#contacto" class="btn-primary">Sí, Contactar</a>
+                <a href="#servicios" class="btn-light">Ver Servicios de Nuevo</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="servicios" class="section container">
-    <h2>Servicios</h2>
-    <div class="cards">
-        <article class="card"><h3>IVR</h3><p>Flujos inteligentes para derivación y atención eficiente.</p></article>
-        <article class="card"><h3>Mail Marketing</h3><p>Campañas segmentadas para adquisición y fidelización.</p></article>
-        <article class="card"><h3>Contact Center</h3><p>Equipos capacitados para venta de seguros de salud.</p></article>
-        <article class="card"><h3>Bots</h3><p>Automatización de respuestas y soporte 24/7.</p></article>
+<section id="quienes" class="section">
+    <div class="container split">
+        <div>
+            <img class="photo" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Equipo TrustMarket en oficinas">
+        </div>
+        <div>
+            <h2 class="section-title">Sobre TrustMarket</h2>
+            <div class="info-item"><strong>🌐 Información y Redes sociales:</strong> presencia digital y canales corporativos activos.</div>
+            <div class="info-item"><strong>📈 Propuestas de Valor:</strong> foco en productividad, conversión y calidad de atención.</div>
+            <div class="info-item"><strong>🏆 Nuestra Experiencia:</strong> trayectoria en campañas comerciales y operaciones BPO.</div>
+        </div>
     </div>
 </section>
 
-<section id="nosotros" class="section alt-bg">
-    <div class="container">
-        <h2>Sobre Nosotros</h2>
-        <p>Somos un partner comercial especializado en experiencia de cliente y cumplimiento de objetivos.</p>
-        <ul>
-            <li>Información corporativa y redes sociales.</li>
-            <li>Propuesta de valor basada en métricas.</li>
-            <li>Experiencia en campañas de alta demanda.</li>
-        </ul>
+<section id="contacto" class="section section-muted">
+    <div class="container split">
+        <div>
+            <h2 class="section-title">Contacto</h2>
+            <iframe class="map" src="https://www.google.com/maps?q=Santiago%20Chile&output=embed" loading="lazy"></iframe>
+            <p class="contact-data">Dirección: Santiago, Región Metropolitana, Chile<br>Teléfono: +56 2 0000 0000</p>
+        </div>
+        <div>
+            <h3>Hablemos de negocios</h3>
+            <form class="contact-form">
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre">
+                <label>Email</label>
+                <input type="email" placeholder="tuemail@empresa.com">
+                <label>Mensaje</label>
+                <textarea rows="4" placeholder="Cuéntanos tu necesidad"></textarea>
+                <button type="button" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
     </div>
-</section>
-
-<section id="contacto" class="section container">
-    <h2>Contáctanos</h2>
-    <p>¿Quieres hablar con un agente? Escríbenos y nuestro equipo te responderá.</p>
-    <a class="btn-secondary" href="mailto:contacto@trustmarket.cl">contacto@trustmarket.cl</a>
 </section>
 {% endblock %}

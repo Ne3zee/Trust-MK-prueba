@@ -1,18 +1,25 @@
 # TrustMarket Web Redesign (Django)
 
-Sitio corporativo y módulo de postulación para reclutamiento de ejecutivos de call center.
+Rediseño corporativo moderno para TrustMarket y módulo de postulación integrado para reclutamiento de ejecutivos de call center.
 
-## Módulos implementados
+## Flujo visual implementado
 
-- **Landing moderna y responsive** con secciones:
-  - Inicio
-  - Servicios
-  - Sobre Nosotros
-  - Contacto
-- **Sección Trabaja con Nosotros** con formulario de postulación.
-- **Persistencia de postulaciones** con modelo `Application`.
-- **Notificación automática** por correo (backend de consola para desarrollo).
-- **Administración** de postulantes en Django Admin.
+- Header sticky con navegación principal y CTA "Trabaja con Nosotros".
+- Hero con propuesta de valor de Contact Center & BPO.
+- Sección de Servicios con 4 cards (IVR, Mail Marketing, Contact Center, Bots).
+- Banner de decisión para contacto con agente humano.
+- Sección Quiénes Somos en layout de dos columnas.
+- Sección de Contacto con mapa y formulario comercial.
+- Footer corporativo con enlaces, redes y texto legal.
+
+## Módulo de Postulación
+
+- Sección dedicada "Únete a nuestro Equipo de Ventas".
+- Stepper visual: "Tus Datos" → "Experiencia" → "Disponibilidad".
+- Validaciones de campos obligatorios y edad mínima.
+- Guardado en base de datos (`Application`).
+- Notificación automática por correo (backend consola en desarrollo).
+- Gestión de postulantes en Django Admin.
 
 ## Campos capturados
 
@@ -20,8 +27,8 @@ Sitio corporativo y módulo de postulación para reclutamiento de ejecutivos de 
 - Teléfono / WhatsApp
 - Email
 - Edad
-- Experiencia en ventas
-- Disponibilidad
+- Experiencia en ventas (No, <1 año, 1-3 años, +3 años)
+- Disponibilidad (Mañana, Tarde, Noche, Fines de semana)
 - Comentarios adicionales
 
 ## URLs
@@ -32,15 +39,8 @@ Sitio corporativo y módulo de postulación para reclutamiento de ejecutivos de 
 
 ## Ejecución local
 
-1. Crear entorno virtual e instalar dependencias:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Aplicar migraciones:
-   ```bash
-   python manage.py migrate
-   ```
-3. Iniciar servidor:
-   ```bash
-   python manage.py runserver
-   ```
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
