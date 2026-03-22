@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}TrustMarket | Inicio{% endblock %}
+
 {% block content %}
 <section class="hero">
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
+    <div class="container hero-content reveal"> 
         <h1>Tu socio estratégico en Contact Center &amp; BPO.</h1>
         <h2>Soluciones tecnológicas de IVR, Mail Marketing y Bots para potenciar tu empresa.</h2>
         <a class="btn-primary btn-lg" href="{% url 'core:services' %}">Nuestros Servicios</a>
@@ -12,14 +15,33 @@
 
 <section class="section section-muted">
     <div class="container split cta-split">
-        <div>
+        <div class="reveal"> 
             <h2>Confianza, tecnología y resultados.</h2>
             <p>En TrustMarket combinamos equipos expertos, automatización inteligente y analítica para campañas comerciales y de atención al cliente.</p>
         </div>
-        <div class="cta-box">
+        
+        <div class="cta-box reveal"> 
             <h3>¿Buscas crecer tu operación?</h3>
             <p>Descubre nuestras unidades de negocio y servicios especializados.</p>
             <a class="btn-primary" href="{% url 'core:services' %}">Ver servicios</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-photos reveal">
+    <div class="container">
+        <h2 class="section-title">CONFIAN CIEGAMENTE EN NOSOTROS</h2>
+        
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="photo-item"><img src="{% static 'img/foto1.png' %}" alt="1"></div>
+                <div class="photo-item"><img src="{% static 'img/foto2.png' %}" alt="2"></div>
+                <div class="photo-item"><img src="{% static 'img/foto3.png' %}" alt="3"></div>
+                
+                <div class="photo-item"><img src="{% static 'img/foto1.png' %}" alt="1"></div>
+                <div class="photo-item"><img src="{% static 'img/foto2.png' %}" alt="2"></div>
+                <div class="photo-item"><img src="{% static 'img/foto3.png' %}" alt="3"></div>
+            </div>
         </div>
     </div>
 </section>
