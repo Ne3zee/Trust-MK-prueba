@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TrustMarket{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="{% url 'core:home' %}">
+            <img src="{% static 'img/logo.png' %}" 
+                 alt="TrustMarket Logo" 
+                 style="height: 50px; width: auto;" 
+                 fetchpriority="high"
+                 loading="eager">
+        </a>
+        <nav class="main-nav">
+            <a href="{% url 'core:home' %}">Inicio</a>
+            <a href="{% url 'core:services' %}">Servicios</a>
+            <a href="{% url 'core:about' %}">Quiénes Somos</a>
+            <a href="{% url 'core:contact' %}">Contacto</a>
+        </nav>
+        <a class="btn-primary nav-cta" href="{% url 'jobs:apply' %}">Trabaja con Nosotros</a>
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %} </main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <p class="footer-logo">TrustMarket</p>
+        </div>
+        <div class="footer-links">
+            <a href="{% url 'core:home' %}">Inicio</a>
+            <a href="{% url 'core:services' %}">Servicios</a>
+            <a href="{% url 'core:about' %}">Quiénes</a>
+            <a href="{% url 'jobs:apply' %}">Trabajo</a>
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+        </div>
+    </div>
+    <p class="footer-legal">© 2026 TrustMarket. Todos los derechos reservados. Políticas de Privacidad</p>
+</footer>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(reveal, 200);
+    });
+</script>
+
+</body>
+</html>
