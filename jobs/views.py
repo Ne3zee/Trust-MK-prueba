@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
+from .models import postulaciones
 
 from .forms import ApplicationForm
 
@@ -38,3 +39,22 @@ def _notify_team(application):
         recipient_list=["reclutamiento@trustmarket.cl"],
         fail_silently=True,
     )
+
+
+def enviar_postulacion(request):
+    if request.method == 'POST':
+        # Captura de checkboxes (getlist es vital para varios valores)
+        disponibilidad_lista = request.POST.getlist('disponibilidad[]')
+        disponibilidad_str = ", ".join(disponibilidad_lista)
+
+        # Crear registro en la tabla manual
+        Postulaciones.objects.create(
+            nombre_completo=request.POST.get('nombre'),
+            telefono=request.POST.get('telefono'),
+            email=request.POST.get('email'),
+            edad=request.POST.get('edad'),
+            experiencia_ventas=request.POST.get('experiencia'),
+            disponibilidad=disponibilidad_str,
+            comentarios=request.POST.get('comentarios')
+        )
+        return render(request, 'exito.html')

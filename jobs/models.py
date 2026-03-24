@@ -27,3 +27,19 @@ class Application(models.Model):
 
     def __str__(self) -> str:
         return f"{self.full_name} - {self.created_at:%d/%m/%Y}"
+
+
+class postulaciones(models.Model):
+    # Django necesita que marques managed = False para no alterar tu tabla manual
+    id = models.AutoField(primary_key=True)
+    nombre_completo = models.CharField(max_length=255)
+    telefono = models.CharField(max_length=50)
+    email = models.EmailField(max_length=255)
+    edad = models.IntegerField()
+    experiencia_ventas = models.CharField(max_length=100)
+    disponibilidad = models.TextField() # Aquí guardaremos los checkboxes como texto
+    comentarios = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False  # NO toca la estructura de la tabla manual
+        db_table = 'postulaciones' # Nombre exacto en MySQL
