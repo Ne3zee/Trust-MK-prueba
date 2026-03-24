@@ -4,7 +4,7 @@ Rediseño corporativo moderno para TrustMarket y módulo de postulación integra
 
 ## Flujo visual implementado
 
-- Header sticky con branding TrustMarket (paleta azul/cian + verde CTA).
+- Header sticky con branding TrustMarket 
 - Hero principal en Inicio.
 - Landing independiente para cada opción del menú:
   - Inicio (`/`)
