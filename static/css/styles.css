@@ -195,3 +195,53 @@ h1, h2, h3 { font-family: "Montserrat", "Inter", sans-serif; margin-top: 0; colo
 
 .site-footer { background: #111827; color: #fff; padding: 2.2rem 0 1.2rem; margin-top: 4rem; }
 .footer-grid { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 1rem; }
+
+/* --- FLOATING WORK BUTTON --- */
+.floating-work-btn-wrap {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 2500;
+}
+
+.floating-work-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  border: none;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  padding: .85rem 1.15rem .85rem .85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.floating-work-btn:hover {
+  filter: brightness(1.05);
+}
+
+.floating-work-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .floating-work-btn-wrap {
+    right: .8rem;
+    bottom: .8rem;
+  }
+
+  .floating-work-btn {
+    font-size: .92rem;
+    padding: .75rem .95rem .75rem .75rem;
+  }
+}
+
