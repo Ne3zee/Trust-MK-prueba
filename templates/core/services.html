@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}TrustMarket | Servicios{% endblock %}
+{% block content %}
+<section class="section section-muted page-hero">
+    <div class="container">
+        <h1>Nuestras Soluciones de Contacto</h1>
+        <p>Servicios diseñados para optimizar conversión, atención y retención.</p>
+    </div>
+</section>
+
+<section class="section reveal">
+    <div class="container">
+        <div class="cards four">
+            <article class="card"><span class="icon">📞</span><h3>IVR Inteligente</h3><p>Automatización de rutas de voz para mejorar tiempos y experiencia.</p></article>
+            <article class="card"><span class="icon">✉️</span><h3>Mail Marketing Automático</h3><p>Orquestación de campañas y seguimiento por segmento.</p></article>
+            <article class="card"><span class="icon">🎧</span><h3>Contact Center 24/7</h3><p>Atención y venta continua con agentes especializados.</p></article>
+            <article class="card"><span class="icon">🤖</span><h3>AI Bots &amp; Chatbots</h3><p>Asistentes para captación, soporte y derivación inteligente.</p></article>
+        </div>
+        <div class="agent-banner">
+            <p>¿Deseas contactar a un agente humano?</p>
+            <div>
+                <a href="{% url 'core:contact' %}" class="btn-primary">Sí, Contactar</a>
+                <a href="{% url 'core:services' %}" class="btn-light">Ver Servicios de Nuevo</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}TrustMarket | Contacto{% endblock %}
+{% block content %}
+<section class="section section-muted page-hero">
+    <div class="container">
+        <h1>Contacto</h1>
+        <p>Hablemos de negocios y de cómo escalar tu operación.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div>
+            <iframe class="map" src="https://www.google.com/maps?q=Santiago%20Chile&output=embed" loading="lazy"></iframe>
+            <p class="contact-data">Dirección: Santiago, Región Metropolitana, Chile<br>Teléfono: +56 2 0000 0000</p>
+        </div>
+        <div>
+            <h2>Hablemos de negocios</h2>
+            <form class="contact-form">
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre">
+                <label>Email</label>
+                <input type="email" placeholder="tuemail@empresa.com">
+                <label>Mensaje</label>
+                <textarea rows="4" placeholder="Cuéntanos tu necesidad"></textarea>
+                <button type="button" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
