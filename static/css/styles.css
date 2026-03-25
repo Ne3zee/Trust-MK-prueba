@@ -1,0 +1,247 @@
+:root {
+  --tm-black: #1a1a1a;
+  --tm-blue: #0056d2;
+  --tm-white: #f4f6f8;
+  --tm-blue-dark: rgb(23, 23, 77);
+  --tm-green: var(--tm-blue);
+  --tm-gray-bg: #f8f9fa;
+  --tm-text: var(--tm-black);
+  --tm-border: #e0e0e0;
+  --tm-error: #dc3545;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--tm-black);
+  background: var(--tm-white);
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: "Montserrat", "Inter", sans-serif; margin-top: 0; color: var(--tm-blue-dark); }
+.container { width: min(1140px, 92%); margin: 0 auto; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(68, 71, 75); 
+  border-bottom: none;
+}
+
+.nav-wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; padding: .95rem 0; }
+.brand { text-decoration: none; font-family: "Montserrat", sans-serif; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: .6rem; }
+.main-nav { justify-self: center; display: flex; gap: 1.1rem; }
+.main-nav a { color: var(--tm-white); text-decoration: none !important; font-weight: 500; }
+.main-nav a:hover { color: var(--tm-blue); }
+.nav-cta { justify-self: end; }
+
+.hero {
+  min-height: 72vh;
+  position: relative;
+  display: grid;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(26, 26, 26, 0.6), rgba(0, 86, 210, 0.4));
+}
+
+.hero-content { position: relative; color: var(--tm-white); text-align: center; padding: 4.5rem 0; }
+.hero h1 { color: var(--tm-white); font-size: clamp(2rem, 4vw, 3.2rem); }
+.hero h2 { color: #e9f2ff; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 500; max-width: 860px; margin: .75rem auto 1.7rem; }
+
+.section { padding: 4.5rem 0; }
+.card { background: var(--tm-white); border: 1px solid var(--tm-border); border-radius: 14px; padding: 1.2rem; min-height: 220px; }
+
+.btn-primary {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: .75rem 1.15rem;
+  cursor: pointer;
+  background: var(--tm-blue-dark);
+  color: #fff;
+}
+
+.btn-full { width: 100%; padding: 15px; margin-top: 10px; }
+
+.reveal {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(40px) !important;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.reveal.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.carousel-container { width: 100%; overflow: hidden; padding: 20px 0; }
+.carousel-track { display: flex; width: max-content; animation: scroll-carrusel 20s linear infinite; }
+.carousel-track:hover { animation-play-state: paused; }
+.photo-item { flex: 0 0 auto; margin: 0 10px; }
+.photo-item img { height: 100px; width: auto; object-fit: contain; border-radius: 8px; display: block; }
+
+@keyframes scroll-carrusel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- SIDE PANEL --- */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 450px;
+  height: 100%;
+  background: white;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+  z-index: 3000;
+  transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel.active { right: 0; }
+
+.side-panel-header {
+  padding: 30px 25px 10px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.side-panel-body {
+  padding: 20px 25px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 30px; cursor: pointer; line-height: 1; }
+
+.side-panel .form-group { margin-bottom: 18px; }
+
+/* FIX RADICAL PARA CHECKBOXES */
+.checkbox-grid-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.checkbox-grid-panel label {
+  display: flex !important;
+  flex-direction: row-reverse !important; /* Mueve el input a la IZQUIERDA del texto */
+  justify-content: flex-end !important;   /* Los pega a la IZQUIERDA del panel */
+  align-items: center !important;
+  width: 100% !important;
+  cursor: pointer;
+}
+
+/* Forzamos que el texto no empuje nada */
+.checkbox-grid-panel label span, 
+.checkbox-grid-panel label {
+  text-align: left !important;
+  font-weight: 500 !important;
+}
+
+.checkbox-grid-panel input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 12px !important; /* Espacio entre cuadrito y texto */
+  margin-top: 4px !important;
+  margin-left: 0 !important;
+  flex-shrink: 0 !important;
+  -webkit-appearance: checkbox !important;
+  appearance: checkbox !important;
+}
+
+/* Otros inputs del panel */
+.side-panel input[type="text"],
+.side-panel input[type="tel"],
+.side-panel input[type="email"],
+.side-panel select,
+.side-panel textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: block;
+}
+
+.panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+  display: none;
+  z-index: 2999;
+}
+.panel-overlay.active { display: block; }
+
+.site-footer { background: #111827; color: #fff; padding: 2.2rem 0 1.2rem; margin-top: 4rem; }
+.footer-grid { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 1rem; }
+
+/* --- FLOATING WORK BUTTON --- */
+.floating-work-btn-wrap {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 2500;
+}
+
+.floating-work-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  border: none;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  padding: .85rem 1.15rem .85rem .85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.floating-work-btn:hover {
+  filter: brightness(1.05);
+}
+
+.floating-work-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .floating-work-btn-wrap {
+    right: .8rem;
+    bottom: .8rem;
+  }
+
+  .floating-work-btn {
+    font-size: .92rem;
+    padding: .75rem .95rem .75rem .75rem;
+  }
+}
+

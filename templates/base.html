@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TrustMarket{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="{% url 'core:home' %}">
+            <img src="{% static 'img/logo.png' %}" 
+                 alt="TrustMarket Logo" 
+                 style="height: 50px; width: auto;" 
+                 fetchpriority="high"
+                 loading="eager">
+        </a>
+        <nav class="main-nav">
+            <a href="{% url 'core:home' %}">Inicio</a>
+            <a href="{% url 'core:services' %}">Servicios</a>
+            <a href="{% url 'core:about' %}">Quiénes Somos</a>
+            <a href="{% url 'core:contact' %}">Contacto</a>
+        </nav>
+       
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %} 
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <p class="footer-logo">TrustMarket</p>
+        </div>
+        <div class="footer-links">
+            <a href="{% url 'core:home' %}">Inicio</a>
+            <a href="{% url 'core:services' %}">Servicios</a>
+            <a href="{% url 'core:about' %}">Quiénes</a>
+            <a href="{% url 'jobs:apply' %}">Trabajo</a>
+        </div>
+        <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+        </div>
+    </div>
+    <p class="footer-legal">© 2026 TrustMarket. Todos los derechos reservados. Políticas de Privacidad</p>
+</footer>
+
+
+<div class="floating-work-btn-wrap">
+    <button type="button" class="floating-work-btn" onclick="togglePanel()" aria-label="Abrir formulario Trabaja con nosotros">
+        <span class="floating-work-btn-icon" aria-hidden="true">💼</span>
+        <span>Trabaja con nosotros</span>
+    </button>
+</div>
+
+
+<div id="sidePanel" class="side-panel">
+    <div class="side-panel-header">
+        <button class="close-btn" onclick="togglePanel()">&times;</button>
+        <h2>Trabaja con Nosotros</h2>
+        <p>Buscamos tu talento para promover nuestros productos</p>
+    </div>
+
+    <div class="side-panel-body">
+        <form action="{% url 'jobs:apply' %}" method="post" class="application-form" id="sideForm">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>👤 Nombre Completo <span class="required">*</span></label>
+                <input type="text" name="full_name" placeholder="Tu nombre..." required>
+            </div>
+
+            <div class="form-group">
+                <label>📱 Teléfono (WhatsApp) <span class="required">*</span></label>
+                <input type="tel" name="phone" placeholder="+56 9..." required>
+            </div>
+
+            <div class="form-group">
+                <label>✉️ Email <span class="required">*</span></label>
+                <input type="email" name="email" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>🔢 Edad <span class="required">*</span></label>
+                <input type="number" name="age" placeholder="25" required>
+            </div>
+
+            <div class="form-group">
+                <label>💼 Experiencia en ventas <span class="required">*</span></label>
+                <select name="sales_experience" required>
+                    <option value="">Selecciona...</option>
+                    <option value="none">Sin experiencia</option>
+                    <option value="1-2">1 a 2 años</option>
+                    <option value="3+">Más de 3 años</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p class="field-title">🗓️ Disponibilidad <span class="required">*</span></p>
+                <div class="checkbox-grid-panel">
+                    <label><input type="checkbox" name="availability_options" value="full_time"> Tiempo Completo</label><br>
+                    <label><input type="checkbox" name="availability_options" value="part_time_am"> Mañana</label><br>
+                    <label><input type="checkbox" name="availability_options" value="part_time_pm"> Tarde</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary btn-full">Enviar Postulación</button>
+        </form>
+    </div>
+</div>
+
+<div id="panelOverlay" class="panel-overlay" onclick="togglePanel()"></div>
+
+<script>
+    // 1. FUNCIONES DE INTERFAZ (PANEL Y REVEAL)
+    function togglePanel() {
+        const panel = document.getElementById("sidePanel");
+        const overlay = document.getElementById("panelOverlay");
+        if (panel && overlay) {
+            panel.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+    }
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    // 2. PERSISTENCIA DE DATOS (LOCALSTORAGE)
+    // Guarda los datos mientras el usuario escribe
+    document.addEventListener('input', function (event) {
+        if (event.target.name) {
+            localStorage.setItem('form_' + event.target.name, event.target.value);
+        }
+    });
+
+    // Recupera los datos al cargar la página
+    function loadSavedData() {
+        const fields = ['full_name', 'phone', 'email', 'age', 'sales_experience'];
+        fields.forEach(fieldName => {
+            const savedValue = localStorage.getItem('form_' + fieldName);
+            if (savedValue) {
+                const inputs = document.querySelectorAll(`[name="${fieldName}"]`);
+                inputs.forEach(input => {
+                    input.value = savedValue;
+                });
+            }
+        });
+    }
+
+    // 3. EVENTOS INICIALES
+    window.addEventListener("scroll", reveal);
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        loadSavedData(); // Carga datos guardados
+        setTimeout(reveal, 200); // Animaciones iniciales
+        
+        // Limpia datos al enviar el formulario con éxito
+        const form = document.getElementById('sideForm');
+        if(form) {
+            form.addEventListener('submit', function() {
+                // Opcional: podrías limpiar aquí, pero es mejor esperar a que Django confirme
+            });
+        }
+    });
+</script>
+</body>
+</html>
