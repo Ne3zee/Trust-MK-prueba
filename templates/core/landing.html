@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TrustMarket | Architected Trust</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00658d",
+              "primary-container": "#00adef",
+              "background": "#f6faff",
+              "on-background": "#161c21",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#eff4fa",
+              "surface-container": "#e9eef5",
+              "surface-container-high": "#e3e9ef",
+              "surface-container-highest": "#dee3e9",
+              "on-surface": "#161c21",
+              "on-surface-variant": "#3e4850",
+              "outline-variant": "#bdc8d1",
+              "on-primary-container": "#003d57"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .hero-gradient { background: linear-gradient(135deg, #00658d 0%, #00adef 100%); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<nav class="fixed top-0 w-full z-50 bg-[#3E4449]/70 backdrop-blur-xl shadow-xl shadow-black/5">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-4 md:px-8 h-20 gap-4">
+    <a class="flex items-center gap-3" href="{% url 'core:home' %}">
+      <img src="{% static 'img/logo.png' %}" alt="TrustMarket" class="h-10 w-auto"/>
+      <span class="text-lg md:text-2xl font-black tracking-tighter text-white">TrustMarket</span>
+    </a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="text-[#00ADEF] font-bold border-b-2 border-[#00ADEF] pb-1 text-sm transition-all duration-300" href="#inicio">Inicio</a>
+      <a class="text-gray-300 hover:text-white transition-colors text-sm" href="#servicios">Servicios</a>
+      <a class="text-gray-300 hover:text-white transition-colors text-sm" href="#trabaja-con-nosotros">Trabaja con Nosotros</a>
+      <a class="text-gray-300 hover:text-white transition-colors text-sm" href="#contacto">Contacto</a>
+    </div>
+    <a href="#contacto" class="bg-primary-container text-on-primary-container px-4 md:px-6 py-2.5 rounded-lg font-bold text-sm hover:scale-95 transition-all duration-200 ease-in-out">Contactar</a>
+  </div>
+</nav>
+
+<main>
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="inicio">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover brightness-[0.35]" alt="Call center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmtBs2cLNGAvELTwSwbfTdPOupIyLxQEMSxnHLF--Df--wPMK2jCNmhXmgLASqYGG75r7tWcfxT1D-QxelCGoBucmDovohzZZa6zLt1aoPt0urJr57yJNOCUPJaBZfAewKar7dKZXnTwL-3sCHzkwaNAYJlrPtr8IWNMKdcGkIbeY3f64pT8b2vL-wXbGifyC2N-u4wE7MC3wajGl0lsMQgLA9DGTbhM7ByZx7PjNKk_xKpTLUGgGeTgxy4W2RiRjudCKHmceA4VyM"/>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full">
+    <div class="max-w-3xl">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-primary-container/20 text-primary-container text-xs font-bold uppercase tracking-widest mb-6">Líderes en Soporte Comercial</span>
+      <h1 class="font-headline text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">Conectamos personas con <span class="text-primary-container">oportunidades reales</span></h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl">Forma parte del equipo líder en ventas de seguros y soporte comercial. Tu crecimiento profesional comienza aquí con confianza y resultados tangibles.</p>
+      <div class="flex flex-col sm:flex-row gap-6">
+        <a href="#trabaja-con-nosotros" class="hero-gradient text-white px-10 py-4 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 text-center">Postula ahora</a>
+        <a href="#servicios" class="border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-center">Conoce más</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-surface-container-low" id="servicios">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-16 md:mb-20">
+      <span class="text-primary font-bold text-xs uppercase tracking-widest block mb-4">Lo que hacemos</span>
+      <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Nuestros Servicios Especializados</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-sm">
+        <h3 class="font-headline text-2xl font-bold mb-4">Venta de seguros de salud</h3>
+        <p class="text-on-surface-variant leading-relaxed">Expertos en la colocación de pólizas de salud con enfoque consultivo para bienestar del cliente y rentabilidad.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm">
+        <h3 class="font-headline text-2xl font-bold mb-4">Atención al cliente</h3>
+        <p class="text-on-surface-variant">Soporte multicanal y resolución de dudas con altos estándares de calidad.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm">
+        <h3 class="font-headline text-2xl font-bold mb-4">Soporte comercial</h3>
+        <p class="text-on-surface-variant">Gestión de leads e inteligencia de ventas para maximizar conversiones.</p>
+      </div>
+      <div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-sm">
+        <h3 class="font-headline text-2xl font-bold mb-4">Outsourcing call center</h3>
+        <p class="text-on-surface-variant">Infraestructura tecnológica y humana para delegar operación de contacto en expertos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-surface-container" id="trabaja-con-nosotros">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+      <div class="lg:w-5/12 p-10 md:p-16 bg-primary text-white">
+        <h2 class="font-headline text-4xl font-bold mb-6">Únete a nuestro equipo</h2>
+        <p class="text-white/80 text-lg mb-8 leading-relaxed">Ofrecemos crecimiento real, capacitaciones y un entorno de alto rendimiento comercial.</p>
+      </div>
+      <div class="lg:w-7/12 p-10 md:p-16">
+        <form action="{% url 'jobs:apply' %}" method="post" class="space-y-6">
+          {% csrf_token %}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-bold mb-2">Nombre completo</label>
+              <input class="w-full bg-surface-container-high border-none rounded-lg p-4" name="full_name" required type="text"/>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2">Correo electrónico</label>
+              <input class="w-full bg-surface-container-high border-none rounded-lg p-4" name="email" required type="email"/>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2">Teléfono</label>
+              <input class="w-full bg-surface-container-high border-none rounded-lg p-4" name="phone" required type="tel"/>
+            </div>
+            <div>
+              <label class="block text-sm font-bold mb-2">Edad</label>
+              <input class="w-full bg-surface-container-high border-none rounded-lg p-4" name="age" min="18" required type="number"/>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-bold mb-2">Experiencia (Años)</label>
+              <select class="w-full bg-surface-container-high border-none rounded-lg p-4" name="sales_experience" required>
+                <option value="">Selecciona una opción</option>
+                <option value="none">Sin experiencia</option>
+                <option value="1-2">1-2 años</option>
+                <option value="3+">3+ años</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <p class="block text-sm font-bold mb-2">Disponibilidad</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                <label class="flex items-center gap-2"><input type="checkbox" name="availability_options" value="manana">Mañana</label>
+                <label class="flex items-center gap-2"><input type="checkbox" name="availability_options" value="tarde">Tarde</label>
+                <label class="flex items-center gap-2"><input type="checkbox" name="availability_options" value="noche">Noche</label>
+                <label class="flex items-center gap-2"><input type="checkbox" name="availability_options" value="fines_semana">Fines de semana</label>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-bold mb-2">Comentarios adicionales</label>
+              <textarea class="w-full bg-surface-container-high border-none rounded-lg p-4" name="additional_comments" rows="3"></textarea>
+            </div>
+          </div>
+          <button class="w-full bg-primary-container text-on-primary-container font-bold py-5 rounded-lg text-lg" type="submit">Enviar postulación</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-surface-container-low" id="contacto">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+    <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">¿Listo para trabajar con TrustMarket?</h2>
+    <p class="text-on-surface-variant mb-8">Conversemos sobre tu operación comercial o tus oportunidades laborales.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{% url 'core:contact' %}" class="hero-gradient text-white px-8 py-3 rounded-lg font-semibold">Ir a contacto</a>
+      <a href="{% url 'core:services' %}" class="bg-white px-8 py-3 rounded-lg font-semibold border border-outline-variant/50">Ver servicios</a>
+    </div>
+  </div>
+</section>
+</main>
+</body>
+</html>
