@@ -43,3 +43,27 @@ class postulaciones(models.Model):
     class Meta:
         managed = False  # NO toca la estructura de la tabla manual
         db_table = 'postulaciones' # Nombre exacto en MySQL
+
+class StitchApplication(models.Model):
+    EXPERIENCE_CHOICES = [
+        ("sin_experiencia", "Sin experiencia"),
+        ("1_2", "1-2 años"),
+        ("mas_3", "3+ años"),
+    ]
+
+    full_name = models.CharField("Nombre completo", max_length=160)
+    email = models.EmailField("Correo electrónico")
+    phone = models.CharField("Teléfono", max_length=30)
+    experience = models.CharField(
+        "Experiencia (Años)", max_length=20, choices=EXPERIENCE_CHOICES
+    )
+    cv = models.FileField("Adjuntar CV (PDF)", upload_to="cvs/")
+    created_at = models.DateTimeField("Fecha de postulación", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Postulación (Stitch)"
+        verbose_name_plural = "Postulaciones (Stitch)"
+
+    def __str__(self) -> str:
+        return f"{self.full_name} - {self.created_at:%d/%m/%Y}"

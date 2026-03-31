@@ -62,3 +62,23 @@ class ApplicationForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+
+from .models import StitchApplication
+
+class StitchApplicationForm(forms.ModelForm):
+    class Meta:
+        model = StitchApplication
+        fields = [
+            "full_name",
+            "email",
+            "phone",
+            "experience",
+            "cv",
+        ]
+        widgets = {
+            "full_name": forms.TextInput(attrs={"placeholder": "Ej. Juan Pérez", "class": "w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"}),
+            "email": forms.EmailInput(attrs={"placeholder": "juan@email.com", "class": "w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"}),
+            "phone": forms.TextInput(attrs={"placeholder": "+56 9 1234 5678", "class": "w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"}),
+            "experience": forms.Select(attrs={"class": "w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-container outline-none transition-all"}),
+            "cv": forms.FileInput(attrs={"id": "cv-upload", "class": "hidden", "accept": ".pdf"}),
+        }

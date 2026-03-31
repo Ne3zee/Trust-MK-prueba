@@ -11,16 +11,37 @@ def apply_view(request):
         form = ApplicationForm(request.POST)
         if form.is_valid():
             application = form.save()
+            
+            # Guardamos explícitamente en la tabla manual 'postulaciones'
+            try:
+                postulaciones.objects.create(
+                    nombre_completo=application.full_name,
+                    telefono=application.phone,
+                    email=application.email,
+                    edad=application.age,
+                    experiencia_ventas=application.get_sales_experience_display(),
+                    disponibilidad=application.availability,
+                    comentarios=application.additional_comments
+                )
+            except Exception as e:
+                print(f"Error guardando en la tabla manual postulaciones: {e}")
+
             _notify_team(application)
             messages.success(
                 request,
                 "¡Gracias por postular! Tu información fue recibida correctamente.",
             )
-            return redirect("jobs:apply")
-    else:
-        form = ApplicationForm()
-
-    return render(request, "jobs/apply.html", {"form": form})
+            return redirect("core:home")
+        else:
+            # Si el formulario no es válido, redirigir a home con mensaje de error
+            messages.error(
+                request,
+                "Hubo un error en tu postulación. Por favor revisa los datos e intenta de nuevo.",
+            )
+            return redirect("core:home")
+    
+    # GET requests a /jobs/ redirigen al home
+    return redirect("core:home")
 
 
 def _notify_team(application):
@@ -39,22 +60,3 @@ def _notify_team(application):
         recipient_list=["reclutamiento@trustmarket.cl"],
         fail_silently=True,
     )
-
-
-def enviar_postulacion(request):
-    if request.method == 'POST':
-        # Captura de checkboxes (getlist es vital para varios valores)
-        disponibilidad_lista = request.POST.getlist('disponibilidad[]')
-        disponibilidad_str = ", ".join(disponibilidad_lista)
-
-        # Crear registro en la tabla manual
-        Postulaciones.objects.create(
-            nombre_completo=request.POST.get('nombre'),
-            telefono=request.POST.get('telefono'),
-            email=request.POST.get('email'),
-            edad=request.POST.get('edad'),
-            experiencia_ventas=request.POST.get('experiencia'),
-            disponibilidad=disponibilidad_str,
-            comentarios=request.POST.get('comentarios')
-        )
-        return render(request, 'exito.html')
