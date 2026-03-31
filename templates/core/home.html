@@ -1,46 +1,246 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}TrustMarket | Inicio{% endblock %}
+{% block title %}TrustMarket | Architected Trust{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content reveal"> 
-        <h1>Tu socio estratégico en Contact Center &amp; BPO.</h1>
-        <h2>Soluciones tecnológicas de IVR, Mail Marketing y Bots para potenciar tu empresa.</h2>
-        <a class="btn-primary btn-lg" href="{% url 'core:services' %}">Nuestros Servicios</a>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="inicio">
+    <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover brightness-[0.35]"
+            alt="Modern high-tech call center with professional diverse team"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmtBs2cLNGAvELTwSwbfTdPOupIyLxQEMSxnHLF--Df--wPMK2jCNmhXmgLASqYGG75r7tWcfxT1D-QxelCGoBucmDovohzZZa6zLt1aoPt0urJr57yJNOCUPJaBZfAewKar7dKZXnTwL-3sCHzkwaNAYJlrPtr8IWNMKdcGkIbeY3f64pT8b2vL-wXbGifyC2N-u4wE7MC3wajGl0lsMQgLA9DGTbhM7ByZx7PjNKk_xKpTLUGgGeTgxy4W2RiRjudCKHmceA4VyM" />
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+        <div class="max-w-3xl reveal">
+            <span
+                class="inline-block px-4 py-1.5 rounded-full bg-primary-container/20 text-primary-container font-label text-xs font-bold uppercase tracking-widest mb-6">
+                Líderes en Soporte Comercial
+            </span>
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
+                Conectamos personas con <span class="text-primary-container">oportunidades reales</span>
+            </h1>
+            <p class="font-body text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
+                Forma parte del equipo líder en ventas de seguros y soporte comercial. Tu crecimiento profesional
+                comienza aquí con confianza y resultados tangibles.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6">
+                <button type="button" onclick="togglePanel()"
+                    class="border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 text-center">
+                    Postula ahora
+                </button>
+                <a href="#servicios"
+                    class="border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-center">
+                    Conoce más
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-12 right-8 hidden xl:block reveal">
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-xl max-w-xs">
+            <div class="flex items-center gap-4 mb-3">
+                <span class="material-symbols-outlined text-primary-container text-3xl">verified</span>
+                <div class="text-white font-bold text-lg">+15 Años de Confianza</div>
+            </div>
+            <p class="text-gray-400 text-sm">Arquitectura de confianza en cada interacción comercial y reclutamiento.
+            </p>
+        </div>
     </div>
 </section>
 
-<section class="section section-muted">
-    <div class="container split cta-split">
-        <div class="reveal"> 
-            <h2>Confianza, tecnología y resultados.</h2>
-            <p>En TrustMarket combinamos equipos expertos, automatización inteligente y analítica para campañas comerciales y de atención al cliente.</p>
+<!-- Services Section -->
+<section class="py-24 bg-surface-container-low" id="servicios">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-20 reveal">
+            <span class="font-label text-primary font-bold text-xs uppercase tracking-widest block mb-4">Lo que
+                hacemos</span>
+            <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Nuestros Servicios
+                Especializados</h2>
         </div>
-        
-        <div class="cta-box reveal"> 
-            <h3>¿Buscas crecer tu operación?</h3>
-            <p>Descubre nuestras unidades de negocio y servicios especializados.</p>
-            <a class="btn-primary" href="{% url 'core:services' %}">Ver servicios</a>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group reveal">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div
+                        class="bg-primary/5 p-4 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <span class="material-symbols-outlined text-4xl">health_and_safety</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline text-2xl font-bold mb-4">Venta de seguros de salud</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Expertos en la colocación de pólizas de salud
+                            con un enfoque consultivo que prioriza el bienestar del cliente y la rentabilidad del socio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group reveal">
+                <div
+                    class="bg-primary/5 p-4 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 w-fit mb-6">
+                    <span class="material-symbols-outlined text-4xl">support_agent</span>
+                </div>
+                <h3 class="font-headline text-2xl font-bold mb-4">Atención al cliente</h3>
+                <p class="text-on-surface-variant">Resolución de dudas y soporte multicanal con los más altos estándares
+                    de calidad NPS.</p>
+            </div>
+            <div
+                class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group reveal">
+                <div
+                    class="bg-primary/5 p-4 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 w-fit mb-6">
+                    <span class="material-symbols-outlined text-4xl">query_stats</span>
+                </div>
+                <h3 class="font-headline text-2xl font-bold mb-4">Soporte comercial</h3>
+                <p class="text-on-surface-variant">Inteligencia de ventas y gestión de leads para maximizar el embudo de
+                    conversión de tu empresa.</p>
+            </div>
+            <div
+                class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group overflow-hidden relative reveal">
+                <div class="relative z-10">
+                    <h3 class="font-headline text-2xl font-bold mb-4">Outsourcing call center</h3>
+                    <p class="text-on-surface-variant max-w-md">Infraestructura tecnológica y humana de primer nivel.
+                        Delegue su operación de contacto en expertos que cuidan su marca como propia.</p>
+                </div>
+                <span
+                    class="material-symbols-outlined absolute -right-4 -bottom-4 text-[12rem] text-primary/5 -rotate-12">hub</span>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="section section-photos reveal">
-    <div class="container">
-        <h2 class="section-title">CONFIAN CIEGAMENTE EN NOSOTROS</h2>
-        
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="photo-item"><img src="{% static 'img/foto1.png' %}" alt="1"></div>
-                <div class="photo-item"><img src="{% static 'img/foto2.png' %}" alt="2"></div>
-                <div class="photo-item"><img src="{% static 'img/foto3.png' %}" alt="3"></div>
-                
-                <div class="photo-item"><img src="{% static 'img/foto1.png' %}" alt="1"></div>
-                <div class="photo-item"><img src="{% static 'img/foto2.png' %}" alt="2"></div>
-                <div class="photo-item"><img src="{% static 'img/foto3.png' %}" alt="3"></div>
+<!-- Why TrustMarket -->
+<section class="py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 reveal">
+                <img class="rounded-xl shadow-2xl" alt="Professional office meeting with diverse executives"
+                    src="{% static 'img/group-business-talking-meeting.jpg' %}" />
+            </div>
+            <div class="w-full md:w-1/2 reveal">
+                <span
+                    class="font-label text-primary font-bold text-xs uppercase tracking-widest block mb-4">Valores</span>
+                <h2 class="font-headline text-4xl font-bold text-on-surface mb-12">Por qué confiar en nosotros</h2>
+                <div class="space-y-10">
+                    <div class="flex gap-6">
+                        <div
+                            class="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-secondary-container text-primary font-bold">
+                            01</div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Experiencia</h4>
+                            <p class="text-on-surface-variant">Décadas acumuladas liderando campañas exitosas en el
+                                sector asegurador.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div
+                            class="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-secondary-container text-primary font-bold">
+                            02</div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Confianza</h4>
+                            <p class="text-on-surface-variant">Procesos transparentes y auditorías constantes para
+                                garantizar la seguridad de los datos.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div
+                            class="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-secondary-container text-primary font-bold">
+                            03</div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Resultados medibles</h4>
+                            <p class="text-on-surface-variant">KPIs en tiempo real que demuestran el retorno de
+                                inversión y la eficiencia operativa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trabaja Con Nosotros (Conversion Section) -->
+
+<div class="max-w-7xl mx-auto px-8">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 font-medium">
+        <span class="material-symbols-outlined align-middle mr-2"
+            style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+<!-- Confían en Nosotros -->
+<style>
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(-50%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+</style>
+<section class="py-20 bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-14 reveal">
+            <span class="font-label text-primary font-bold text-xs uppercase tracking-widest block mb-4">Nuestros
+                Aliados</span>
+            <h2 class="font-headline text-4xl font-bold text-on-surface tracking-tight">Confían en Nosotros</h2>
+        </div>
+    </div>
+    <!-- Scroll continuo horizontal -->
+    <div style="width: 100%; overflow: hidden; padding: 20px 0;" class="reveal">
+        <div
+            style="display: flex; gap: 80px; align-items: center; width: max-content; animation: marqueeScroll 15s linear infinite;">
+            <img src="{% static 'img/foto1.png' %}" alt="BancoEstado"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+            <img src="{% static 'img/foto2.png' %}" alt="Banco de Chile"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+            <img src="{% static 'img/foto3.png' %}" alt="RedSalud"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+            <!-- Duplicados para loop infinito -->
+            <img src="{% static 'img/foto1.png' %}" alt="BancoEstado"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+            <img src="{% static 'img/foto2.png' %}" alt="Banco de Chile"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+            <img src="{% static 'img/foto3.png' %}" alt="RedSalud"
+                style="height: 150px; width: auto; max-width: 350px; object-fit: contain; flex-shrink: 0;" />
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-24 bg-surface-container-lowest" id="contacto">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h2 class="font-headline text-5xl font-extrabold mb-8 tracking-tighter">Hablemos de tu futuro</h2>
+                <p class="text-on-surface-variant text-lg mb-12">Ya sea que busques una oportunidad laboral o un aliado
+                    comercial, estamos listos para escucharte.</p>
+                <div class="space-y-8">
+                    <a class="flex items-center gap-6 group" href="mailto:hola@trustmarket.com">
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <span class="text-xl font-medium">hola@trustmarket.com</span>
+                    </a>
+                    <a class="flex items-center gap-6 group" href="#">
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                            <span class="material-symbols-outlined">chat</span>
+                        </div>
+                        <span class="text-xl font-medium">WhatsApp Directo</span>
+                    </a>
+                </div>
+            </div>
+            <div class="h-[400px] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/20 reveal">
+                <img class="w-full h-full object-cover" alt="Modern geometric architectural detail"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgTR2YZT0muoL82kmItb8Gq71C-8DxsYLtkIf6aqwapzrMmpZlFfuqWdhxEJqnAnUvX2PjVZRpD8wqzYd310uj6G4_Pb0g8KfFGMwRyMCUYZVs74WRHCxps9pcxGFiFngcK45qI57rjXTWDhx70dDWw6GZ1Y-XliKp2ts70avokyIsu_peP7GYcllBkV_rIqQ-m1T6U6_QGzLFWqCo-XRK75NV11lS4GS6TZXSSlIckdqdyLfKQ6AIA_0xk7rqvj9WMfNL415ALYzC" />
             </div>
         </div>
     </div>
